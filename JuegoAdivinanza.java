@@ -7,7 +7,7 @@ public class JuegoAdivinanza {
 
     public JuegoAdivinanza() {
         this.palabra = seleccionarPalabraAleatoria().toLowerCase();
-        this.intentos = 40;
+        this.intentos = 15;
         this.progreso = "_".repeat(palabra.length());
     }
 
@@ -38,5 +38,26 @@ public class JuegoAdivinanza {
     public String getPalabra() {
 
         return palabra;
+    }
+    public void adivinarLetra(String letra) {
+        if (palabra.contains(letra)) {
+            StringBuilder sb = new StringBuilder(progreso);
+            for (int i = 0; i < palabra.length(); i++) {
+                if (palabra.charAt(i) == letra.charAt(0)) {
+                    sb.setCharAt(i, letra.charAt(0));
+                }
+            }
+            progreso = sb.toString();
+        } else {
+            intentos--;
+        }
+    }
+
+    public void verificarPalabraCompleta(String intento) {
+        if (intento.equals(palabra)) {
+            progreso = palabra;
+        } else {
+            intentos--;
+        }
     }
 }
