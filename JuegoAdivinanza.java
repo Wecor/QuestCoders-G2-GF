@@ -39,6 +39,7 @@ public class JuegoAdivinanza {
 
         return palabra;
     }
+
     public void adivinarLetra(String letra) {
         if (palabra.contains(letra)) {
             StringBuilder sb = new StringBuilder(progreso);
