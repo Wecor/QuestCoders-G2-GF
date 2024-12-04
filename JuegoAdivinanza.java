@@ -20,7 +20,7 @@ public class JuegoAdivinanza {
                 "pajaro", "pez", "sol", "luna", "estrella",
                 "codigo", "bucle", "variable", "clase", "funcion",
                 "pelota", "camisa", "zapato", "silla", "puerta",
-                "reloj", "cocina", "ventana", "fiesta", "avion"};
+                "reloj", "cocina", "ventana", "fiesta", "avion", "parangaricutirimicuaro"};
         Random random = new Random();
         return palabras[random.nextInt(palabras.length)];
     }
