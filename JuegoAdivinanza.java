@@ -71,6 +71,14 @@ public class JuegoAdivinanza {
         return palabra;
     }
 
+
+    /**
+     * Adivina una letra:
+     * El jugador intenta adivinar una letra de la palabra secreta.
+     * Si la letra está en la palabra, se actualiza el progreso reemplazando los guiones bajos por la letra adivinada.
+     * Si la letra no esta en la palabra, se pierde un intento.
+     * @param letra Es la letra que el jugador quiere adivinar. Debe ser un String con un solo carácter.
+     */
     public void adivinarLetra(String letra) {
         if (palabra.contains(letra)) {
             StringBuilder sb = new StringBuilder(progreso);
@@ -85,6 +93,13 @@ public class JuegoAdivinanza {
         }
     }
 
+    /**
+     * Verificar la palabra completa:
+     * El jugador intenta adivinar toda la palabra secreta.
+     * Si la adivinanza es correcta, se revela toda la palabra.
+     * Si es incorrecta, se pierde un intento.
+     * @param intento Es la palabra que el jugador quiere adivinar.
+     */
     public void verificarPalabraCompleta(String intento) {
         if (intento.equals(palabra)) {
             progreso = palabra;
