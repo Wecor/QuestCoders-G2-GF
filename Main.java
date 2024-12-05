@@ -40,6 +40,7 @@ public class Main {
             }
         } while (continuar);
     }
+
     public static void iniciarJuego(JuegoAdivinanza juego, Scanner scanner) {
         if (juego.getIntentos() > 0 && juego.getProgreso().contains("")) {
             System.out.println("Progreso: " + juego.getProgreso());
