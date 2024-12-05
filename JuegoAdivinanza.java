@@ -64,7 +64,7 @@ public class JuegoAdivinanza {
     /**
      * Método getPalabra.
      * Obtiene la palabra secreta que el jugador debe adivinar.
-     * @return Retorna una cadena de texto que contiene la palabra secreta.
+     * @return Retorna una cadena de texto que contiene la palabra secreta
      */
     public String getPalabra() {
 
