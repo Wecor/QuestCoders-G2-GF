@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -21,7 +20,7 @@ public class Main {
             scanner.nextLine();
 
             if (opcion == 1) {
-                iniciarJuego(juego, scanner);
+                iniciarJuegoSinWhile(juego, scanner);
             } else if (opcion == 2) {
                 palabra.mostrarConGuiones(juego.getProgreso());
             } else if (opcion == 3) {
@@ -39,10 +38,11 @@ public class Main {
                 System.out.println("Opción no válida. Intente nuevamente.");
             }
         } while (continuar);
+
     }
 
-    public static void iniciarJuego(JuegoAdivinanza juego, Scanner scanner) {
-        if (juego.getIntentos() > 0 && juego.getProgreso().contains("")) {
+    public static void iniciarJuegoSinWhile(JuegoAdivinanza juego, Scanner scanner) {
+        if (juego.getIntentos() > 0 && juego.getProgreso().contains("_")) {
             System.out.println("Progreso: " + juego.getProgreso());
             System.out.println("Intentos restantes: " + juego.getIntentos());
             System.out.print("Adivina una letra o la palabra completa: ");
@@ -52,9 +52,9 @@ public class Main {
             } else {
                 juego.verificarPalabraCompleta(entrada);
             }
-            iniciarJuego(juego, scanner);
+            iniciarJuegoSinWhile(juego, scanner); // Llamada recursiva
         } else {
-            if (!juego.getProgreso().contains("")) {
+            if (!juego.getProgreso().contains("_")) {
                 System.out.println("¡Has ganado! La palabra era: " + juego.getPalabra());
             } else {
                 System.out.println("¡Has perdido! La palabra era: " + juego.getPalabra());
