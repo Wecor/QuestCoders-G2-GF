@@ -1,4 +1,20 @@
 import java.util.Scanner;
+
+/**
+ * Método que gestiona el flujo del juego de adivinanza sin utilizar bucles explícitos (utiliza recursión en su lugar).
+ * Este método verifica si el jugador aún tiene intentos restantes y progreso por completar.
+ * <ul>
+ *     <li>Si el jugador tiene intentos y la palabra no ha sido completada, muestra el progreso y solicita una entrada.</li>
+ *     <li>Si el jugador adivina una letra o palabra incorrecta, reduce los intentos disponibles.</li>
+ *     <li>Si el jugador completa la palabra correctamente, termina el juego mostrando un mensaje de victoria.</li>
+ *     <li>Si se quedan sin intentos, termina el juego mostrando un mensaje de derrota.</li>
+ * </ul>
+ * El método se llama a sí mismo recursivamente hasta que se cumplan las condiciones de finalización del juego.
+ *
+ * @param juego    Instancia de la clase JuegoAdivinanza que contiene la lógica del juego y el estado actual.
+ * @param scanner  Instancia de Scanner para recibir las entradas del jugador.
+ */
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -62,4 +78,3 @@ public class Main {
         }
     }
 }
-
