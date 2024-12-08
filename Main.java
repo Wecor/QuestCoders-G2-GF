@@ -25,9 +25,9 @@ public class Main {
         boolean continuar = true;
 
         do {
-            System.out.println("\n--- Menú ---");
+            System.out.println("\n-- Menú --");
             System.out.println("1. Iniciar Juego");
-            System.out.println("2. Mostrar progreso con guiones");
+            System.out.println("2. Mostrar progreso");
             System.out.println("3. Comprobar letra");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
