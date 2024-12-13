@@ -7,6 +7,7 @@ public class JuegoAdivinanzaForm extends JFrame {
     JLabel lblProgreso;
     JLabel lblIntentos;
     JLabel lblCantidadLetras;
+    JLabel lblIngreseLetra;
     JTextField txtEntrada;
     JButton btnEnviar;
     JButton btnReiniciar;
@@ -46,10 +47,8 @@ public class JuegoAdivinanzaForm extends JFrame {
             }
         });
 
-        setTitle("Juego de Adivinanza");
         setSize(400, 300); // Ajusta el tamaño de la ventana según necesites
         setLocationRelativeTo(null); // Centrar ventana
-        setVisible(true); // Mostrar la ventana
 
     }
 
