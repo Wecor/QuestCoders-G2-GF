@@ -13,7 +13,7 @@ public class PantallaInicioForm extends JFrame {
         btnIniciarJuego.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Crear la ventana principal del juego
+                // Se Crear la ventana principal del juego
                 JFrame frameJuego = new JFrame("Juego de Adivinanza");
                 frameJuego.setContentPane(new JuegoAdivinanzaForm().mainPanel);
                 frameJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
