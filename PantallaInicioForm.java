@@ -9,7 +9,7 @@ public class PantallaInicioForm extends JFrame {
     JButton btnSalir;
 
     public PantallaInicioForm() {
-        // Acción para el botón "Iniciar Juego"
+
         btnIniciarJuego.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -22,7 +22,6 @@ public class PantallaInicioForm extends JFrame {
                 frameJuego.setVisible(true);
 
 
-                // Cerrar la ventana inicial
                 dispose();
             }
         });
@@ -52,7 +51,6 @@ public class PantallaInicioForm extends JFrame {
         );
     }
 
-    // Método principal para lanzar la pantalla inicial
     public static void main(String[] args) {
         JFrame frame = new JFrame("Pantalla Inicial");
         frame.setContentPane(new PantallaInicioForm().mainPanel);
