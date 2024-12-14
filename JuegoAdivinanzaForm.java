@@ -2,6 +2,21 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Clase JuegoAdivinanzaForm que representa la interfaz gráfica del juego de adivinanza.
+ * Permite al usuario adivinar letras o palabras completas y muestra el progreso del juego.
+ *
+ * Métodos:
+ * - JuegoAdivinanzaForm(): Constructor que inicializa el juego y configura la interfaz gráfica.
+ * - manejarEntrada(): Maneja la entrada del usuario, verifica si es una letra o una palabra completa,
+ *   y actualiza el estado del juego. Muestra un mensaje de victoria o derrota si el juego ha terminado.
+ * - reiniciarJuego(): Reinicia el juego creando una nueva instancia de JuegoAdivinanza y actualiza
+ *   la interfaz gráfica.
+ * - actualizarInterfaz(): Actualiza la interfaz gráfica con el progreso actual del juego y los intentos restantes.
+ * - main(String[] args): Método principal que inicia la aplicación, creando una instancia de
+ *   JuegoAdivinanzaForm y configurando la ventana principal.
+ */
+
 public class JuegoAdivinanzaForm extends JFrame {
     JPanel mainPanel;
     JLabel lblProgreso;
@@ -18,11 +33,10 @@ public class JuegoAdivinanzaForm extends JFrame {
     public JuegoAdivinanzaForm() {
         juego = new JuegoAdivinanza();
 
-        // Inicializar etiquetas
         lblCantidadLetras.setText("La palabra tiene " + juego.getPalabra().length() + " letras.");
         actualizarInterfaz();
 
-        // Botón Enviar
+
         btnEnviar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -30,7 +44,6 @@ public class JuegoAdivinanzaForm extends JFrame {
             }
         });
 
-        // Botón Reiniciar
         btnReiniciar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -38,7 +51,7 @@ public class JuegoAdivinanzaForm extends JFrame {
             }
         });
 
-        // Botón Salir
+
         btnSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,7 +66,6 @@ public class JuegoAdivinanzaForm extends JFrame {
 
     }
 
-    // Manejar entrada del usuario
     private void manejarEntrada() {
         String entrada = txtEntrada.getText().toLowerCase();
         txtEntrada.setText("");
@@ -74,21 +86,17 @@ public class JuegoAdivinanzaForm extends JFrame {
     }
 
 
-
-    // Reiniciar el juego
     private void reiniciarJuego() {
         juego = new JuegoAdivinanza();
         actualizarInterfaz();
     }
 
-    // Actualizar etiquetas de la interfaz
     private void actualizarInterfaz() {
         lblProgreso.setText("Progreso: " + juego.getProgreso());
         lblIntentos.setText("Intentos restantes: " + juego.getIntentos());
     }
 
 
-    // Método principal para ejecutar la interfaz
     public static void main(String[] args) {
         JFrame frame = new JFrame("Juego de Adivinanza");
         frame.setContentPane(new JuegoAdivinanzaForm().mainPanel);
