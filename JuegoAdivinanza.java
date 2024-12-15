@@ -1,95 +1,88 @@
-import java.util.Random;
-
 /**
- * Clase: JuegoAdivinanza
- * Juego de adivinanza de palabras, el juego selecciona una palabra aleatoria y permite
- * a los jugadores adivinarla en un número limitado de intentos, los jugadores pueden ver su progreso
- * representado con guiones bajos que sustituyen letras no adivinadas de la palabra.
- *
- * Este juego es ideal para practicar habilidades de ortografía y expandir el vocabulario.
- * Los jugadores pueden aprovechar su conocimiento de palabras al intentar adivinar la palabra
- * correcta. También añade un elemento de emoción al limitar el número de intentos, lo que
- * hace que el juego sea desafiante y divertido.
- *
- * Atributos:
- * - palabra: La palabra secreta que los jugadores deben adivinar.
- * - intentos: El número de intentos restantes que los jugadores tienen para adivinar la palabra.
- * - progreso: Representa el estado actual de las letras adivinadas, utilizando guiones bajos
- *             para las letras que aún no se han adivinado.
- *
- * Métodos:
- * - seleccionarPalabraAleatoria(): Método privado que elige una palabra al azar de un conjunto
- *                                   predefinido de palabras.
- * - getProgreso(): Devuelve la representación actual del progreso de adivinanza del jugador.
- * - getIntentos(): Retorna el número de intentos restantes del jugador.
- * - getPalabra(): Devuelve la palabra secreta que debe adivinar el jugador.
- * - adivinarLetra(String letra): Permite a los jugadores intentar adivinar una letra de la
- *                                 palabra secreta y actualizar el progreso si la letra es correcta.
- * - verificarPalabraCompleta(String intento): Permite a los jugadores intentar adivinar
- *                                             toda la palabra secreta y actualizar el progreso
- *                                             en consecuencia.
+ * Clase que representa el juego de adivinanza de palabras.
+ * Permite a los jugadores adivinar letras o la palabra completa
+ * con un numero limitado de intentos.
  */
-
 public class JuegoAdivinanza {
-    private String palabra;
+    private Palabra palabra;
     private int intentos;
-    private String progreso;
 
+    /**
+     * Constructor para inicializar el juego con una nueva palabra y un número de intentos.
+     */
     public JuegoAdivinanza() {
-        this.palabra = seleccionarPalabraAleatoria().toLowerCase();
+        this.palabra = new Palabra();
         this.intentos = 15;
-        this.progreso = "_".repeat(palabra.length());
     }
 
-    private String seleccionarPalabraAleatoria() {
-        String[] palabras = {"casa", "perro", "gato", "comida", "escuela",
-                "amigo", "familia", "trabajo", "carro", "bicicleta",
-                "computadora", "programacion", "telefono", "internet", "musica",
-                "libro", "juego", "pintura", "deporte", "viaje",
-                "ciudad", "montana", "playa", "bosque", "rio",
-                "pajaro", "pez", "sol", "luna", "estrella", "homunculo",
-                "codigo", "bucle", "variable", "clase", "funcion",
-                "pelota", "camisa", "zapato", "silla", "puerta",
-                "reloj", "cocina", "ventana", "fiesta", "avion", "parangaricutirimicuaro"};
-        Random random = new Random();
-        return palabras[random.nextInt(palabras.length)];
-    }
-
-
+    /**
+     * Obtiene el progreso actual del jugador en el juego.
+     * @return Progreso representado con letras y guiones bajos.
+     */
     public String getProgreso() {
-
-        return progreso;
+        return palabra.getProgreso();
     }
 
+    /**
+     * Obtiene el número de intentos restantes.
+     * @return Número de intentos disponibles.
+     */
     public int getIntentos() {
-
         return intentos;
     }
 
-
+    /**
+     * Obtiene la palabra que debe adivinar el jugador.
+     * @return Palabra secreta del juego.
+     */
     public String getPalabra() {
-
-        return palabra;
+        return palabra.getPalabraSeleccionada();
     }
 
+    /**
+     * Obtiene la pista asociada a la palabra seleccionada.
+     * @return Pista para ayudar al jugador.
+     */
+    public String getPista() {
+        return palabra.getPista();
+    }
+
+
+
+    /**
+     * Valida si la entrada del usuario es válida: debe contener solo letras y ser una letra o la palabra completa.
+     * @param entrada Entrada del usuario.
+     * @return true si la entrada es válida, false en caso contrario.
+     */
+    public boolean validarEntrada(String entrada) {
+        if (!entrada.matches("[a-zA-Z]+")) {
+            return false;
+        }
+        if (entrada.length() != 1 && entrada.length() != palabra.getPalabraSeleccionada().length()) {
+            return false;
+        }
+        return true;
+    }
+
+
+    /**
+     * Intenta adivinar una letra de la palabra secreta.
+     * Si es correcta, actualiza el progreso; de lo contrario, reduce los intentos.
+     * @param letra Letra ingresada por el jugador.
+     */
     public void adivinarLetra(String letra) {
-        if (palabra.contains(letra)) {
-            StringBuilder sb = new StringBuilder(progreso);
-            for (int i = 0; i < palabra.length(); i++) {
-                if (palabra.charAt(i) == letra.charAt(0)) {
-                    sb.setCharAt(i, letra.charAt(0));
-                }
-            }
-            progreso = sb.toString();
-        } else {
+        if (!palabra.verificarLetra(letra)) {
             intentos--;
         }
     }
 
+    /**
+     * Permite al jugador intentar adivinar toda la palabra secreta.
+     * Si es correcta, completa el progreso; de lo contrario, reduce los intentos.
+     * @param intento Palabra ingresada por el jugador.
+     */
     public void verificarPalabraCompleta(String intento) {
-        if (intento.equals(palabra)) {
-            progreso = palabra;
-        } else {
+        if (!palabra.verificarPalabraCompleta(intento)) {
             intentos--;
         }
     }

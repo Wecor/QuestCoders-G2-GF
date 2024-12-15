@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Clase que gestiona la interfaz del juego de adivinanza.
+ */
 public class JuegoAdivinanzaForm extends JFrame {
     JPanel mainPanel;
     JLabel lblProgreso;
@@ -12,18 +15,22 @@ public class JuegoAdivinanzaForm extends JFrame {
     JButton btnEnviar;
     JButton btnReiniciar;
     JButton btnSalir;
-
+    JButton btnPista;
+    JButton btnComoJugar;
     JuegoAdivinanza juego;
 
 
+    /**
+     * Constructor para inicializar la interfaz del juego.
+     * Configura los elementos de la ventana, define los eventos de los botones
+     * e inicia una nueva partida del juego.
+     */
     public JuegoAdivinanzaForm() {
         juego = new JuegoAdivinanza();
 
-        // Inicializar etiquetas
         lblCantidadLetras.setText("La palabra tiene " + juego.getPalabra().length() + " letras.");
         actualizarInterfaz();
 
-        // Botón Enviar
         btnEnviar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -31,15 +38,13 @@ public class JuegoAdivinanzaForm extends JFrame {
             }
         });
 
-        // Botón Reiniciar
         btnReiniciar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 reiniciarJuego();
             }
         });
-
-        // Botón Salir
+        
         btnSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -47,15 +52,48 @@ public class JuegoAdivinanzaForm extends JFrame {
             }
         });
 
+        btnPista.addActionListener(e -> mostrarPista());
+        btnComoJugar.addActionListener(e -> mostrarComoJugar());
+
         setSize(400, 300); // Ajusta el tamaño de la ventana según necesites
         setLocationRelativeTo(null); // Centrar ventana
 
     }
 
-    // Manejar entrada del usuario
+    /**
+     * Muestra las instrucciones de cómo jugar.
+     */
+    private void mostrarComoJugar() {
+        JOptionPane.showMessageDialog(
+                null,
+                "=== Cómo Jugar ===\n\n"
+                + "1. Ingresa una letra para intentar adivinar la palabra.\n"
+                + "2. Si la letra es correcta, se revelará en el progreso.\n"
+                + "3. Si crees saber la palabra completa, escríbela.\n"
+                + "4. Tienes un número limitado de intentos.\n"
+                + "5. Usa la opción de pista si necesitas ayuda.\n",
+
+        "Como jugar",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
+    private void mostrarPista() {
+        JOptionPane.showMessageDialog(mainPanel,
+                "Pista: " + juego.getPista(),
+                "Pista",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+
     private void manejarEntrada() {
-        String entrada = txtEntrada.getText().toLowerCase();
+        String entrada = txtEntrada.getText().toLowerCase().trim();
         txtEntrada.setText("");
+
+        if (!juego.validarEntrada(entrada)) {
+            JOptionPane.showMessageDialog(mainPanel, "Entrada inválida. Ingresa solo una letra o la palabra completa.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         if (entrada.length() == 1) {
             juego.adivinarLetra(entrada);
@@ -74,25 +112,21 @@ public class JuegoAdivinanzaForm extends JFrame {
 
 
 
-    // Reiniciar el juego
+
+    /**
+     * Reinicia el juego con una nueva palabra.
+     */
     private void reiniciarJuego() {
         juego = new JuegoAdivinanza();
         actualizarInterfaz();
     }
 
-    // Actualizar etiquetas de la interfaz
+    /**
+     * Actualiza las etiquetas de la interfaz con el progreso y los intentos restantes.
+     */
     private void actualizarInterfaz() {
         lblProgreso.setText("Progreso: " + juego.getProgreso());
         lblIntentos.setText("Intentos restantes: " + juego.getIntentos());
-    }
-
-
-    // Método principal para ejecutar la interfaz
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Juego de Adivinanza");
-        frame.setContentPane(new JuegoAdivinanzaForm().mainPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        lblCantidadLetras.setText("La palabra tiene " + juego.getPalabra().length() + " letras.");
     }
 }

@@ -2,27 +2,29 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Clase que representa la interfaz de inicio del juego.
+ */
 public class PantallaInicioForm extends JFrame {
     JPanel mainPanel;
     JButton btnIniciarJuego;
     JButton btnAcercaDe;
     JButton btnSalir;
 
+    /**
+     * Constructor para inicializar la pantalla de inicio.
+     * Configura los botones y sus respectivas acciones.
+     */
     public PantallaInicioForm() {
-        // Acción para el botón "Iniciar Juego"
         btnIniciarJuego.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Se Crear la ventana principal del juego
                 JFrame frameJuego = new JFrame("Juego de Adivinanza");
                 frameJuego.setContentPane(new JuegoAdivinanzaForm().mainPanel);
                 frameJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frameJuego.pack();
                 frameJuego.setLocationRelativeTo(null);
                 frameJuego.setVisible(true);
-
-
-                // Cerrar la ventana inicial
                 dispose();
             }
         });
@@ -37,32 +39,42 @@ public class PantallaInicioForm extends JFrame {
         btnAcercaDe.addActionListener(e -> mostrarAcercaDe());
     }
 
+    /**
+     * Muestra la ficha técnica del equipo y el eslogan.
+     */
     private void mostrarAcercaDe() {
-        JOptionPane.showMessageDialog(
-                null,
+        String mensaje = "=== Ficha Técnica del Equipo ===\n\n"
+                + "Product Owner:\n"
+                + "Eide Guerrero\n"
+                + "Responsable de maximizar el valor del producto y el trabajo del equipo.\n\n"
+                + "Scrum Master:\n"
+                + "Kevin Rodriguez\n"
+                + "Facilita eventos de Scrum y ayuda al equipo a mejorar.\n\n"
+                + "Development Team:\n"
+                + "Abiud Villamizar, Kevin Rodriguez\n"
+                + "Profesionales auto-organizados que entregan incrementos de producto.\n\n"
+                + "Líder Técnico:\n"
+                + "Darcy Escalante\n"
+                + "Líder del equipo de desarrollo.\n\n"
+                + "Eslogan: \"Más que juegos, creamos experiencias.\"\n";
 
-                "Juego de Adivinanza de Palabras\n\n" +
-                        "Instrucciones:\n" +
-                        "1. Adivina la palabra secreta letra por letra o completa.\n" +
-                        "2. Tienes un número limitado de intentos.\n" +
-                        "3. El progreso se muestra en pantalla con guiones bajos para letras pendientes.\n\n" +
-                        "¡Diviértete jugando!",
-                "Acerca de",
-                JOptionPane.INFORMATION_MESSAGE
-        );
+        JOptionPane.showMessageDialog(mainPanel, mensaje, "Acerca de", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    // Método principal para lanzar la pantalla inicial
+    /**
+     * Metodo principal para lanzar la aplicacion.
+     * @param args Argumentos de la linea de comandos.
+     */
     public static void main(String[] args) {
         JFrame frame = new JFrame("Pantalla Inicial");
         frame.setContentPane(new PantallaInicioForm().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
     private void createUIComponents() {
     }
-
 
 }
