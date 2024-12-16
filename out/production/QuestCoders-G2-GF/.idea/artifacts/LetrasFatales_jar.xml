@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="LetrasFatales:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/LetrasFatales_jar</output-path>
+    <root id="archive" name="LetrasFatales.jar">
+      <element id="module-output" name="QuestCoders-G2-GF" />
+    </root>
+  </artifact>
+</component>
