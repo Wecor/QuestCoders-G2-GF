@@ -19,7 +19,7 @@ public class PantallaInicioForm extends JFrame {
         btnIniciarJuego.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frameJuego = new JFrame("Juego de Adivinanza");
+                JFrame frameJuego = new JFrame("Letras Fatales");
                 frameJuego.setContentPane(new JuegoAdivinanzaForm().mainPanel);
                 frameJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frameJuego.pack();

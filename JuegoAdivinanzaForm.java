@@ -129,4 +129,5 @@ public class JuegoAdivinanzaForm extends JFrame {
         lblIntentos.setText("Intentos restantes: " + juego.getIntentos());
         lblCantidadLetras.setText("La palabra tiene " + juego.getPalabra().length() + " letras.");
     }
+
 }
