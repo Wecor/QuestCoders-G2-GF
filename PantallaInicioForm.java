@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Clase que representa la interfaz de inicio del juego.
+ * Clase que representa la interfaz de inicio del juego
  */
 public class PantallaInicioForm extends JFrame {
     JPanel mainPanel;
