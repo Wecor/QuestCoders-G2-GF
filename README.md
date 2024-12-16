@@ -4,7 +4,7 @@ Este proyecto es un juego de adivinanza de palabras en Java, donde los jugadores
 Los jugadores tienen un número limitado de intentos para adivinar la palabra, y su progreso se muestra utilizando guiones bajos para las letras no adivinadas. 
 El juego es una forma divertida de aumentar habilidades cognitivas de los jugadores.
 
-Explicación de los metodos y clases
+ °Explicación de los metodos y clases
 
            °Clase: JuegoAdivinanza
 
@@ -53,7 +53,7 @@ public static void main(String[] args): Método principal que lanza la pantalla 
 
 private void mostrarAcercaDe(): Muestra un cuadro de diálogo con información sobre el juego y sus instrucciones.
 
-      Clase: JuegoAdivinanzaForm
+       Clase: JuegoAdivinanzaForm
 
 Atributos:
 
@@ -69,7 +69,7 @@ private void reiniciarJuego(): Reinicia el juego y actualiza la interfaz.
 
 private void actualizarInterfaz(): Actualiza las etiquetas de la interfaz con el progreso y los intentos restantes.
 
-°Tecnologías utilizadas
+  °Tecnologías utilizadas
 
 Lenguaje de programación: Java
 
