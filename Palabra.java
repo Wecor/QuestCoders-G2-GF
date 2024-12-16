@@ -74,7 +74,8 @@ public class Palabra {
                 {"laguna", "Un cuerpo pequeño de agua."},
                 {"fuego", "Es caliente y se usa para cocinar."},
                 {"hielo", "Es agua congelada."},
-                {"parangaricutirimicuaro", "Trabalenguas, tire cabeza :P"}
+                {"parangaricutirimicuaro", "Trabalenguas, tire cabeza :P"},
+                {"supercalifragilisticoespialidoso", "Una palabra dicha por mary Poppins."}
         };
         Random random = new Random();
         return palabrasConPistas[random.nextInt(palabrasConPistas.length)];
