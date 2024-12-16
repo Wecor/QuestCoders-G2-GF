@@ -73,7 +73,8 @@ public class Palabra {
                 {"caballo", "Se monta y galopa rápidamente."},
                 {"laguna", "Un cuerpo pequeño de agua."},
                 {"fuego", "Es caliente y se usa para cocinar."},
-                {"hielo", "Es agua congelada."}
+                {"hielo", "Es agua congelada."},
+                {"parangaricutirimicuaro", "Trabalenguas, tire cabeza :P"}
         };
         Random random = new Random();
         return palabrasConPistas[random.nextInt(palabrasConPistas.length)];
