@@ -10,14 +10,6 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="2da0a" class="javax.swing.JButton" binding="btnIniciarJuego">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Iniciar juego"/>
-        </properties>
-      </component>
       <component id="6c094" class="javax.swing.JButton" binding="btnAcercaDe">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -32,6 +24,14 @@
         </constraints>
         <properties>
           <text value="Salir"/>
+        </properties>
+      </component>
+      <component id="54cd7" class="javax.swing.JButton" binding="btnIniciarJuego">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Iniciar"/>
         </properties>
       </component>
     </children>
