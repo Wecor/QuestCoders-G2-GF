@@ -63,7 +63,7 @@ public class PantallaInicioForm extends JFrame {
 
     /**
      * Metodo principal para lanzar la aplicacion.
-     * @param args Argumentos de la linea de comandos
+     * @param args Argumentos de la linea de comandos.
      */
     public static void main(String[] args) {
         JFrame frame = new JFrame("Pantalla Inicial");

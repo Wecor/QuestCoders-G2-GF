@@ -8,7 +8,7 @@ public class JuegoAdivinanza {
     private int intentos;
 
     /**
-     * Constructor para inicializar el juego con una nueva palabra y un número de intentos.
+     * Constructor para inicializar el juego con una nueva palabra y un número de intentos
      */
     public JuegoAdivinanza() {
         this.palabra = new Palabra();
